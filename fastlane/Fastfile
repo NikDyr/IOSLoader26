@@ -67,7 +67,8 @@ platform :ios do
         export_team_id: ENV["TEAM_ID"],
         verbose: true,
         export_options: {
-            method: 'app-store',
+            method: 'app-store-connect',
+            teamID: ENV["TEAM_ID"],
             uploadBitcode: false, 
             compileBitcode: false,
         }
@@ -130,7 +131,8 @@ platform :ios do
         export_team_id: ENV["TEAM_ID"],
         verbose: true,
         export_options: {
-            method: 'app-store',
+            method: 'app-store-connect',
+            teamID: ENV["TEAM_ID"],
             uploadBitcode: false, 
             compileBitcode: false,
         }
