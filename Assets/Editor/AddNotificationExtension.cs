@@ -23,6 +23,10 @@ public static class AddNotificationExtension
 #endif
         
         project.SetBuildProperty(mainTarget, "SWIFT_VERSION", "5.0");
+        project.SetBuildProperty(mainTarget, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
+        project.SetBuildProperty(mainTarget, "EMBEDDED_CONTENT_CONTAINS_SWIFT", "YES");
+        project.AddBuildProperty(mainTarget, "LD_RUNPATH_SEARCH_PATHS", "@executable_path/Frameworks");
+        project.AddBuildProperty(mainTarget, "OTHER_LDFLAGS", "-ObjC");
         project.AddFrameworkToProject(mainTarget, "UserNotifications.framework", false);
 
         string extGuid = CreateNotificationExtension(project, buildPath, mainTarget);
@@ -68,12 +72,12 @@ public static class AddNotificationExtension
             project.SetBuildProperty(extGuid, "PRODUCT_BUNDLE_IDENTIFIER",
                 PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.iOS) + ".notifications");
             project.SetBuildProperty(extGuid, "SWIFT_VERSION", "5.0");
+            project.SetBuildProperty(extGuid, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
             project.SetBuildProperty(extGuid, "IPHONEOS_DEPLOYMENT_TARGET", "15.0");
             project.SetBuildProperty(extGuid, "CODE_SIGN_STYLE", "Automatic");
             project.SetBuildProperty(extGuid, "CODE_SIGN_ENTITLEMENTS", relEntitlementsPath);
 
             project.AddTargetDependency(mainTarget, extGuid);
-            project.AddBuildProperty(mainTarget, "LD_RUNPATH_SEARCH_PATHS", "@executable_path/Frameworks");
 
             return extGuid;
     }
