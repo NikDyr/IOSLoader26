@@ -1,3 +1,4 @@
+#if !SHORT_BUILD
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
@@ -212,3 +213,4 @@ class NotificationService: UNNotificationServiceExtension {
 }";
     }
 }
+#endif
