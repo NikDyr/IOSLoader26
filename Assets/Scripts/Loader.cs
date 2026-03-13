@@ -136,9 +136,7 @@ public class Loader : MonoBehaviour, IAppsFlyerConversionData
             networkInfoScreenObject.SetActive(true);
             yield break;
         }
-        if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
-            ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
-            ATTrackingStatusBinding.RequestAuthorizationTracking();
+
         if (_launchMode is LaunchMode.None)
         {
             yield return LoadAndVerifyAppsFlyer();
