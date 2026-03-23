@@ -128,14 +128,14 @@ public static class AddNotificationExtension
         sb.AppendLine("target 'UnityFramework' do");
         sb.AppendLine("  pod 'AppsFlyerFramework', '6.17.8'");
         sb.AppendLine("  pod 'PurchaseConnector', '6.17.8'");        
-        sb.AppendLine("  pod 'FirebaseMessaging', '11.10.0'");
+        sb.AppendLine("  pod 'FirebaseMessaging', '12.10.0'");
         sb.AppendLine("end");
         sb.AppendLine();
         sb.AppendLine("target 'Unity-iPhone' do");
         sb.AppendLine("end");
         sb.AppendLine();
         sb.AppendLine("target 'notifications' do");
-        sb.AppendLine("  pod 'FirebaseMessaging', '11.10.0'");
+        sb.AppendLine("  pod 'FirebaseMessaging', '12.10.0'");
         sb.AppendLine("end");
         
         File.WriteAllText(Path.Combine(buildPath, "Podfile"), sb.ToString());
